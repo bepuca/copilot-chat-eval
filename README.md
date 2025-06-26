@@ -42,7 +42,8 @@ This extension automates VSCode's chat interface to:
    The user provides a country and you should answer with only the capital of that country.
    ```
 
-2. Create a test dataset (`dataset.json`):
+2. Create a test dataset (`dataset.json`). Only `input` and `waitMs` are required by the extension,
+the rest are ignored. Example:
    ```json
    [
        {"input": "France", "waitMs": 4000, "capital": "Paris"},
@@ -65,6 +66,8 @@ This extension automates VSCode's chat interface to:
 - **Single-turn only** - One input, one output
 
 ## Example Evaluation
+
+The script used in the demo for illustrative purposes. Note this is not part of the extension itself, but shows how to analyze results:
 
 ```python
 import json
