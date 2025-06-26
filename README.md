@@ -5,7 +5,7 @@ A VSCode extension for evaluating GitHub Copilot Chat prompts against test datas
 ![Demo showing the functionality of the extension](demo.gif)
 
 
-This repository accompanies the blog post [Building an Evaluation Harness for VSCode Copilot Chat]() and provides a proof-of-concept implementation that developers can use and extend. While not currently published to the marketplace, if it proves useful and stable it may be published in the future.
+This repository accompanies the blog post [Building an Evaluation Harness for VSCode Copilot Chat]() and provides a proof-of-concept implementation that developers can use and extend. While not currently published to the marketplace, if it proves useful and stable it may be published in the future. In the meantime, you can use it through the development host in VSCode or [package it as a VSIX](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions) file for local installation.
 
 ## Why?
 
@@ -29,7 +29,7 @@ This extension automates VSCode's chat interface to:
 2. Run `npm install`
 3. Run `npm run compile`
 4. Open the project in VSCode
-5. Press F5 (or Debug > Start Debugging) on `extension.ts` to launch a new VSCode window with the extension loaded
+5. Press F5 (or Debug > Start Debugging) on `extension.ts` to launch a new VSCode window with the extension loaded or follow the [packaging instructions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions) to create a VSIX file for local installation.
 
 ## Quick Start
 
