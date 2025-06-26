@@ -23,10 +23,6 @@ This extension automates VSCode's chat interface to:
 2. Run it against each test case in your dataset
 3. Export results for analysis
 
-```
-prompt.md + dataset.json � automated chat sessions � results.json � evaluation metrics
-```
-
 ## Installation
 
 1. Clone this repository
@@ -72,22 +68,21 @@ prompt.md + dataset.json � automated chat sessions � results.json � evalua
 
 ```python
 import json
+import sys
 from pathlib import Path
 
-dataset = json.loads(Path("dataset.json").read_text())
-results = json.loads(Path(".github/evals/capital/20250625-0840.json").read_text())
+dataset = json.loads(Path(sys.argv[1]).read_text())
+results = json.loads(Path(sys.argv[2]).read_text())
 
-correct = sum(1 for rec, chat in zip(dataset, results)
-              if rec["capital"] in chat["requests"][0]["response"][0]["value"])
+correct = 0
+for record, result_chat in zip(dataset, results):
+    answer = result_chat["requests"][0]["response"][0]["value"]
+    correct += 1 * (record["capital"] in answer)
 
-print(f"Accuracy: {correct}/{len(dataset)} ({correct/len(dataset)*100:.0f}%)")
+accuracy = correct / len(dataset) * 100
+print(f"Accuracy: {accuracy:.2f}% ({correct}/{len(dataset)})")
 ```
 
 ## When to Use
 
 Perfect for early experimentation with prompt ideas. Despite limitations, having imperfect evaluation beats having none - you get concrete signals about what works instead of guessing.
-
-## References
-
-- [VSCode Copilot Chat Docs](https://code.visualstudio.com/docs/copilot/overview)
-- [Reusable Prompts](https://code.visualstudio.com/docs/copilot/copilot-customization)
