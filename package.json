@@ -1,0 +1,29 @@
+{
+  "name": "copilot-chat-eval",
+  "displayName": "Copilot Chat Prompt Evaluator",
+  "description": "Evaluate a Copilot Chat Prompt against an eval dataset",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": ["Other"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.evaluatePrompt",
+        "title": "Evaluate Active Prompt"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.93.0",
+    "@types/node": "20.x",
+    "typescript": "^5.5.0"
+  }
+}
